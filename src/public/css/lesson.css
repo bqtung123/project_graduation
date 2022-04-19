@@ -1,0 +1,120 @@
+@import url(config.css);
+@import url(footer.css);
+@import url(navigation.css);
+@import url(lesson_card.css);
+@import url(loader.css);
+.course-name {
+  margin: 130px 0px 20px 0px;
+}
+
+.lesson-container {
+  display: grid;
+  grid-template-columns: 70% 30%;
+}
+
+.left-container {
+  padding-right: 30px;
+  margin-bottom: 30px;
+}
+
+/* Style tab links */
+.tab-links {
+  background-color: #555;
+  color: white;
+  outline: none;
+  cursor: pointer;
+}
+  
+.tab-links:hover {
+  border-bottom: #FF0000 solid 2px;
+}
+  
+.hidden {
+  display: none;
+  transition: .5s ease-in-out;
+}
+
+.show {
+  display: block;
+  transition: .5s ease-in-out;
+}  
+
+div.tab button, #submit-answer, #hide-transcript, #reset-answer {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  background-color: var(--primary-color-btn);
+}
+
+#submit-answer, #hide-transcript,  #reset-answer {
+  margin-top: 15px;
+  color: #ffffff;
+}
+
+#reset-answer {
+  background-color: var(--danger-color) !important;
+}
+
+.continue-lesson {
+  margin-top: 30px;
+}
+
+.tab-content{
+  padding-bottom: 30px;
+  background-color: var(--background-color-item);
+  padding: 20px 30px;
+  border: var(--border);
+}
+
+.tab {
+  border: var(--border);
+  background-color: var(--background-color-item);
+  margin-top: 30px;
+}
+
+.active {
+  background-color: var(--danger-color);
+  color: var(--white);
+}
+
+
+.fa-arrow-circle-right:hover{
+  margin-left: 20px;
+  transition: 1s ease-in-out;
+}
+
+.course-relate-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+/*============================QUERY-MEDIA===============================*/
+
+  /* For medium devices */
+  @media screen and (max-width: 576px) {
+   
+  }
+  
+  @media screen and (max-width: 767px) {
+
+  }
+  /* For large devices */
+  @media screen and (max-width: 1024px) {
+    .lesson-container {
+      grid-template-columns:none;
+    }
+    .container {
+      width: 95% !important;
+    }
+    .left-container {
+      padding-right: 0;
+    }
+    
+    .tab-content {
+      padding: 15px 10px !important;
+    }
+  }

@@ -1,0 +1,188 @@
+:root {
+  --background-color-item: #ffffff;
+  --background-color: #f5f7f8;
+  --footer-background-color: #18191a;
+  --footer-color : #C0DAC1;
+  --grey-color: #7a7a7b;
+  --white-color: #ffffff;
+  --primary-color-btn:#0093cf;
+  --danger-color: #FF0000;
+  --success-color: #00FF00;
+  --info--color:#0dcaf0;
+  --warning-color: #ffc107;
+  --dark-color: #212529;
+  --light-color:#f8f9fa;
+  --secondary-color:#0d6efd;
+  --border : 1px solid rgb(221, 221, 221);
+  --border-none: none;
+  --border-light: 1px solid var(--grey-color);
+  --border-dark: var(--border);
+  --hue: 174;
+  --sat: 63%;
+  --first-color: hsl(var(--hue), var(--sat), 40%);
+  --title-color: hsl(var(--hue), 12%, 15%);
+  --text-color: hsl(var(--hue), 8%, 35%);
+  --body-color: hsl(var(--hue), 100%, 99%);
+
+  /*================= Font=============*/
+  --font-family:'Cursive', 'Poppins', sans-serif;
+  --header-height: 3rem;  
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1.15rem;
+  --normal-font-size: .938rem;
+  --tiny-font-size: .625rem;
+  --font-size: 16px;
+  --button-font-size : 0.8rem;
+  --button-font-size-hover: 0.92rem;
+
+  /*=============border radius==============*/
+  --border-radius: 20px;
+
+  /*============= z index ==================*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+
+  /*==================box shadow===============*/
+  --box-shadow-hover: 0 3px 10px rgb(31 31 31 / 16%), 0 3px 10px rgb(31 31 31 / 23%);
+  --box-shadow:0 1px 6px rgb(31 31 31 / 12%), 0 1px 4px rgb(31 31 31 / 12%);
+}
+
+*{
+  font-family: var(--font-family);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: var(--font-size);
+}
+
+html,body {
+  letter-spacing: -.025em;
+  font-size: var(--font-size);
+  background-color: var(--background-color);
+  scroll-behavior: smooth;
+  position: relative;
+
+  overflow-x: hidden;
+}
+
+.container{
+  width: 80%;
+  margin: 0 auto;
+}
+
+.btn-primary {
+  color:var(--white-color);
+  background-color:var(--primary-color-btn);
+}
+
+button {
+  cursor: pointer;
+  font-size:var(--button-font-size);
+  color: var(--text-color);
+}
+
+button:hover {
+  font-size: var(--button-font-size-hover);
+}
+
+section {
+  margin-top: 50px;
+}
+
+ul{
+  text-decoration: none;
+  list-style-type: none;
+}
+
+a {
+  color: unset;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: var(--h1-font-size);
+  font-weight: 600;
+}
+
+h2 {
+  font-size: var(--h2-font-size);
+  font-weight: 500;
+}
+
+h3 {
+  font-size: var(--h3-font-size);
+  font-weight: 450;
+}
+
+/* ================================GRID============================== */
+
+[class*="col-"] {
+  padding: 1rem;
+}
+
+.col-1 {
+  width: 8.33%;
+}
+
+.col-2 {
+  width: 16.66%;
+}
+
+.col-3 {
+  width: 25%;
+}
+
+.col-4 {
+  width: 33.33%;
+}
+
+.col-5 {
+  width: 41.66%;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.col-7 {
+  width: 58.33%;
+}
+
+.col-8 {
+  width: 66.66%;
+}
+
+.col-9 {
+  width: 75%;
+}
+
+.col-10 {
+  width: 83.33%;
+}
+
+.col-11 {
+  width: 91.66%;
+}
+
+.col-12 {
+  width: 100%;
+}
+
+
+blockquote {
+  border-left: 5px solid black;
+  margin: 30px 0;
+  font-size: 18px;
+  padding: 12.5px 25px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+[disabled='disabled'] {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

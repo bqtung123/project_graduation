@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E Learning</title>
+    <link rel = "icon" href ="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" type = "image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/index.css">
+    <script src="../js/icons.js"></script>
+    <style>
+        /* ANIMATION */
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .left-to-right {
+            transform: translateX(-150%);
+            transition: 1s ease-in-out;
+        }
+
+        .left-to-right.start {
+            transform: translateX(0);
+        }
+
+        .right-to-left {
+            transform: translateX(150%);
+            transition: 1s ease-in-out;
+        }
+
+        .right-to-left.start {
+            transform: translateX(0);
+        }
+
+    </style>
+</head>
+<body onload="loader()">
+    <div id="parentLoader" style="height:100vh;">
+        <div id="loader"></div>
+    </div>
+    <div id="content" class="animate-top">
+        <!-- SECION ABOUT -->
+        <section class="align-items-center" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-7">
+                        <img src="https://learnenglish.britishcouncil.org/sites/podcasts/files/styles/430x261_4/public/2021-09/GettyImages-1072206958_0.jpg?itok=qJTgFre7" alt=""
+                            class="fullwidth left-to-right play-on-scroll">
+                    </div>
+                    <div class="col-5 col-xs-12">
+                        <div class="about-slogan right-to-left play-on-scroll">
+                            <h3>
+                                <span class="primary-color">We</span> create <span class="primary-color">delicious</span>
+                                memories for <span class="primary-color">you</span>
+                            </h3>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio natus placeat et eos,
+                                dignissimos voluptatem tempora necessitatibus doloribus! Eum qui doloribus odio dolor
+                                tenetur nihil impedit vero magni, distinctio soluta!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="align-items-center" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-7">
+                        <img src="https://learnenglish.britishcouncil.org/sites/podcasts/files/styles/430x261_4/public/2021-09/GettyImages-1072206958_0.jpg?itok=qJTgFre7" alt=""
+                            class="fullwidth left-to-right play-on-scroll">
+                    </div>
+                    <div class="col-5 col-xs-12">
+                        <div class="about-slogan right-to-left play-on-scroll">
+                            <h3>
+                                <span class="primary-color">We</span> create <span class="primary-color">delicious</span>
+                                memories for <span class="primary-color">you</span>
+                            </h3>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio natus placeat et eos,
+                                dignissimos voluptatem tempora necessitatibus doloribus! Eum qui doloribus odio dolor
+                                tenetur nihil impedit vero magni, distinctio soluta!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END SECION ABOUT -->
+    </div>
+
+    <!--------------------ADD JS------------------------->
+    <script src="../js/loader.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/searchbar.js"></script>
+    <script src="../js/footer.js"></script>
+    <script src="../js/faqs.js"></script>
+    <script src="../js/darkmode.js"></script>
+    <script src="../js/index.js"></script>
+    <script src="../js/scrollAnimation.js"></script>
+
+</body>

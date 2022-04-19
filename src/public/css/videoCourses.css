@@ -1,0 +1,55 @@
+@import url(lesson_card.css);
+@import url('loader.css');
+.video-lesson {
+    display: grid;
+    grid-template-columns: 40% 60%;
+}
+.video-lesson__image {
+    flex-grow: 1;
+    max-width: 500px;
+    align-items: center;
+    margin: auto;
+}
+
+.video-lesson__image > img {
+    max-width: 400px;
+}
+
+.lessons {
+    flex-grow: 2;
+    flex-direction: column;
+}
+
+.show-more-container {
+    text-align: center;
+}
+
+.show-more {
+    height: 40px;
+    margin-bottom: 20px;
+    border: none;
+    width: 15%;
+    transition: 1s ease-in-out;
+}
+.show-more:hover {
+    width: 17%;
+    border-radius: var(--border-radius);
+}
+
+@media screen and (max-width: 1350px) {
+    .video-lesson {
+        grid-template-columns: none;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .video-lesson {
+        grid-template-columns: none;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .video-lesson__image > img {
+        max-width: 300px;
+    }
+}

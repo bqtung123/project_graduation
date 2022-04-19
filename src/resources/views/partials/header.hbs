@@ -1,18 +1,114 @@
-<header>
-    <nav>
-        <div class='menu'>
-            <div class='logo'><a href='/'>Travel <span>Agency</span></a></div>
-            <ul>
-                <li>Room</li>
-                <li>Flight</li>
-                <li>Today's Deal</li>
-            </ul>
-        </div>
-        <div class='myAccount'>
-            <div class='ctaGroup'>
-                <div class='cta'>Sign In</div>
-                <div class='cta active'>Create Account</div>
+<head>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet' />
+    <link rel='stylesheet' href='/css/index.css' />
+    <style>
+        /* Style The Dropdown Button */ .dropbtn { background-color: #4CAF50; color: white; padding:
+        16px; font-size: 16px; border: none; cursor: pointer; } /* The container <div> - needed to
+        position the dropdown content */ .dropdown { position: relative; display: inline-block; } /*
+        Dropdown Content (Hidden by Default) */ .dropdown-content { display: none; position:
+        absolute; background-color: #f9f9f9; min-width: 160px; box-shadow: 0px 8px 16px 0px
+        rgba(0,0,0,0.2); z-index: 1; } /* Links inside the dropdown */ .dropdown-content a { color:
+        black; padding: 12px 16px; text-decoration: none; display: block; } /* Change color of
+        dropdown links on hover */ .dropdown-content a:hover {background-color: #f1f1f1} /* Show the
+        dropdown menu on hover */ .dropdown:hover .dropdown-content { display: block; } /* Change
+        the background color of the dropdown button when the dropdown content is shown */
+        .dropdown:hover .dropbtn { }
+    </style>
+</head>
+
+<nav class='nav container'>
+    <a href='/' class='nav__logo'>Travel <span>Agency</span></a>
+    <div class='nav__menu' id='nav-menu'>
+        <ul class='nav__list'>
+            <li class='nav__item'>
+                <a href='/' class='nav__link active-link'>
+                    <i class='bx bx-home-alt nav__icon'></i>
+                    <span class='nav__name'>Home</span>
+                </a>
+            </li>
+            <li class='nav__item'>
+                <a href='#' class='nav__link'>
+                    <i class='bx bx-book-alt nav__icon'></i>
+                    <span class='nav__name'>Room</span>
+                </a>
+            </li>
+            <li class='nav__item'>
+                <a href='#' class='nav__link'>
+                    <i class='bx bx-video nav__icon'></i>
+                    <span class='nav__name'>Flight</span>
+                </a>
+            </li>
+            <li class='nav__item'>
+                <a href='#' class='nav__link'>
+                    <i class='bx bxs-music nav__icon'></i>
+                    <span class='nav__name'>Today's Deal</span>
+                </a>
+            </li>
+            <li class='nav__item' style='display: flex; align-items: center;'>
+                <i
+                    class='bx bxs-toggle-left nav__icon'
+                    id='light'
+                    status='light'
+                    hiddenicon='false'
+                    style='font-size:2.25rem; transition: width 2s;'
+                    onclick='toggleDarkModeStatus(event)'
+                ></i>
+                <i
+                    class='bx bxs-toggle-right nav__icon'
+                    id='dark'
+                    status='dark'
+                    hiddenicon='true'
+                    style='font-size:2.25rem; '
+                    onclick='toggleDarkModeStatus(event)'
+                ></i>
+                <span class='nav__name'>Dark mode</span>
+            </li>
+        </ul>
+
+    </div>
+    <div>
+        {{#if login.status}}
+
+            <div class='dropdown show'>
+                <a
+                    class='btn btn-secondary dropdown-toggle dropbtn'
+                    href='#'
+                    role='button'
+                    id='dropdownMenuLink'
+                    data-toggle='dropdown'
+                    aria-haspopup='true'
+                    aria-expanded='false'
+                >
+                    {{login.name}}
+                </a>
+                <div class='dropdown-menu dropdown-content' aria-labelledby='dropdownMenuLink'>
+
+                    {{#if login.admin}}
+                        <a class='dropdown-item' href='/courses/create'>Post course</a>
+                        <a class='dropdown-item' href='/me/stored/courses'>My courses</a>
+                    {{/if}}
+                    <form method='post' action='/login?_method=DELETE'>
+                        <input type='hidden' name='_csrf' value='{{csrfToken}}' />
+                        <button
+                            type='submit'
+                            class='btn btn-primary dropdown-item'
+                            style='width:100%'
+                        ><i class='bx bxs-log-out'></i>Log out</button>
+                    </form>
+                </div>
             </div>
-        </div>
-    </nav>
-</header>
+
+        {{else}}
+
+            <li class='nav__item'>
+                <a href='/login' class='nav__link'>
+                    <i class='bx bx-log-in-circle nav__icon'></i>
+                    <span class='nav__name'>Log in</span>
+                </a>
+            </li>
+
+        {{/if}}
+    </div>
+
+</nav>
+<script src='/js/darkmode.js'></script>

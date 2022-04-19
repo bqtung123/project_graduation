@@ -1,0 +1,141 @@
+@import url(../css/config.css);
+body {
+    height: 100vh;
+}
+
+.s-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+.form-group__input {
+    text-indent: 30px;
+    height: 46px;
+    width: 100%;
+    border: var(--border-light);
+    border-radius: var(--border-radius);
+    padding: 0 20px;
+    font-size: var(--font-size);
+    outline: none;
+    color: var(--text-color);
+}
+.form-group {
+    max-width: 500px;
+    position: relative;
+    margin-bottom: 10px;
+}
+.register,
+.login {
+    width: 500px;
+    padding: 30px 50px;
+    /* box-shadow:var(--box-shadow); */
+    background-color: transparent;
+    border: var(--border);
+    border-radius: 0;
+    padding-bottom: 50px;
+    border-radius: 15px;
+}
+
+.register-container,
+.login-container {
+    display: flex;
+    justify-content: center;
+    min-height: 300px;
+    margin: auto;
+    background-color: var(--background-color-item);
+}
+
+.form-group__icon {
+    position: absolute;
+    right: 20px;
+    top: 35px;
+    transform: scale(0);
+    transition: transform 0.3s ease-in-out;
+    z-index: 100;
+}
+
+.form-group__icon--header {
+    position: absolute;
+    left: 20px;
+    top: 35px;
+    z-index: 100;
+}
+
+.signup_btn,
+.signin_btn {
+    text-align: center;
+    padding: 0 auto;
+    width: 50%;
+    margin: 10px 25%;
+    height: 45px;
+    border: 1px solid var(--primary-color-btn);
+}
+
+.form-txt {
+    font-weight: bolder;
+}
+
+.form-logo {
+    margin-bottom: 30px;
+}
+
+.form-input-err-msg {
+    color: red;
+    font-size: 0.75rem;
+}
+
+.form-group.error .form-group__icon.error,
+.form-group.success .form-group__icon.success {
+    transform: scale(1);
+}
+
+.form-group.error input {
+    border: 1px solid var(--danger-color);
+}
+.form-group.error label {
+    color: black;
+}
+
+/* .form-group.success input{
+    border: 1px solid var(--success-color);
+} */
+.form-group.success label {
+    color: black;
+}
+
+.error {
+    color: var(--danger-color);
+}
+.invalid {
+    border-color: var(--danger-color);
+}
+
+.success {
+    color: var(--success-color);
+}
+
+@media screen and (max-width: 756px) {
+    .form-group__input {
+        font-size: var(--font-size-mb);
+    }
+
+    .register,
+    .login {
+        padding: 30px 30px;
+        width: 100%;
+    }
+
+    .container {
+        width: 90% !important;
+    }
+}
+.signup-birthday {
+    text-indent: 15px !important;
+}
+
+input {
+    background-color: transparent;
+    border: var(--border-none);
+}

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E Learning</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <script src="../js/icons.js"></script>
+</head>
+
+<body onload="loader()">
+    <!-------------------SPINNER--------------------------->
+    <div id="parentLoader" style="height:100vh;">
+        <div id="loader"></div>
+    </div>
+
+    <!--------------------CONTENT-------------------------->
+    <div id="content" class="animate-top" >
+        <!----------------TOP NAVIGATION-------------------->
+        <header class="header" id="header">
+            
+        </header>
+
+        <!----------------LESSON-CONTENT--------------------->
+        <section>
+            <div class="lesson-detail container">
+                <div class="course-name">
+                    <h2><i style="color: crimson;font-size: 20px; font-weight: 200;" class='bx bxl-youtube'></i> Course: Likes and Favorites</h2>
+                </div>
+                <div class="lesson" style="margin: 0px 0px 20px 0px;">
+                    <div class="lesson__title">
+                        <h2><i style="color: crimson;font-size: 20px; font-weight: 200;" class='bx bxs-book-alt'></i> Lesson 10: Lesson 10</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="lesson-container container">
+                <div class="left-container">
+                    <iframe width="100%" height="600px" src="http://www.youtube.com/embed/IStS6E0uGhE?autoplay=1" frameborder="0" allowfullscreen></iframe>
+                    <div class="tab">
+                        <button value="transcript" class="tab-links" onclick="openTab(event, 'transcript')" id="defaultOpen"><i class="far fa-bookmark"></i> Transcript</button>
+                        <button value="quiz" class="tab-links" onclick="openTab(event, 'quiz')"><i class="far fa-question-circle"></i> Quiz</button>
+                    </div>
+                    <div id="quiz" class="tab-content">
+                        <p>Answer the following questions about the interview.</p>
+                        <div class="qiz-question">
+                            <div class="question__content">1. What subject does she dislike?  </div>
+                            <input type="checkbox" name="question1" class="answer1" id="answer1_1" value="A">
+                            <label for="answer1_A">a) math</label>
+                            </br>
+                            <input type="checkbox" name="question1" class="answer1" id="answer1_2" value="B">
+                            <label for="answer1_B">b) math2</label>
+                            </br>
+                            <input type="checkbox" name="question1" class="answer1" id="answer1_3" value="C">
+                            <label for="answer1_C">c) math3</label>
+                            </br>
+                        </div>
+                        <div class="qiz-question">
+                            <div class="question__content">2. What subject does she dislike?  </div>
+                            <input type="checkbox" name="question2" class="answer2" id="answer2_1" value="A">
+                            <label for="answer2_1">a) math</label>
+                            </br>
+                            <input type="checkbox" name="question2" class="answer2" id="answer2_2" value="B">
+                            <label for="answer2_2">b) math</label>
+                            </br>
+                            <input type="checkbox" name="question2" class="answer2" id="answer2_3" value="C">
+                            <label for="answer2_3">c) math</label>
+                            </br>
+                        </div>
+                        <div class="qiz-question">
+                            <div class="question__content">3. What subject does she dislike?  </div>
+                            <input type="radio" class="answer3" name="question3" id="answer3_1" value="A">
+                            <label for="answer3_A">a) math</label>
+                            </br>
+                            <input type="radio" class="answer3"  name="question3" id="answer3_2" value="B">
+                            <label for="answer3_2">b) math</label>
+                            </br>
+                            <input type="radio" class="answer3"  name="question3" id="answer3_3" value="C">
+                            <label for="answer3_3">c) math</label>
+                            </br>
+                        </div>
+                        <button id="submit-answer"><i class="far fa-paper-plane"></i> Submit Answer</button>
+                        <button id="reset-answer"><i class="fas fa-redo-alt"></i> Reset Answer</button>
+                    </div>  
+                    <div id="transcript" class="tab-content">
+                        
+                        <div id="transcript__content">
+                            Thirteen years ago, I was living in Washington, DC. I was working with the Department of Energy to identify breakthrough technologies to help solve climate change. And I remember one particular day, sitting in a windowless room, in massive concrete buildings, and talking with colleagues about how this particular wind technology, or solar, or battery technology could solve climate, if only we had enough resources.
+                            And then, I met my mentor, Maurice Kaya. And he had a very different perspective. He lived 5,000 miles away, in Hawaii, and he'd been working on the ground, implementing clean energy technology with communities. He'd been doing it for more than 30 years. And he asked me, "What if we brought this decision-making on breakthrough technologies closer to the ground, closer to people who are actually being affected by new technologies. What would that unlock? What would that look like?" And he invited me to move to Hawaii to figure out just that. 
+                            And so I did, I moved to Hawaii. And all of a sudden, it wasn't just my job to identify interesting new technologies from DC, but to actually wrestle with some of the challenges on the ground. I was right in the thick of it. This was 2009. Electricity prices in Hawaii were three times those in other states, and people couldn't afford to pay their bills. At the same time, solar energy, electric vehicles, were just starting to come into their own, and it was actually cheaper to use these than burn oil. 
+                            So Hawaii presented this perfect opportunity to demonstrate how to transition an entire economy off of fossil fuels. It was all getting real. The battery that we’d written a check for, in DC, was now on a ship on its way to Hawaii, ready to be installed just a few miles from my home. And so Maurice and I, seeing this transition was happening, and the fact that we needed many new technologies in order to make it work, started a nonprofit called Elemental, an investment platform. We've now invested in over 100 start-ups, and we've funded more than 70 projects that are first-of-their-kind technology projects to actually implement these technologies on the ground, in communities. And we’re testing this thesis: Can we actually make better investment decisions if we're closer to communities and the places where we're implementing these new ideas?
+                            And what we've learned in the last dozen years is that, yes, while technology brings half the solution, the community brings the other half. But there is a huge gap in the amount we're investing in the technology to reach this transition and the amount we're investing in the communities and the community capacity and infrastructure to actually deploy these technologies at scale. 
+                            Last year, globally, about 500 billion dollars was invested in the technology side of the decarbonization equation. And while this is really necessary and needed -- and in fact, it needs to increase four to 10 times in order to get where we need to go in emissions -- we're not keeping up on the community side, and the gap is only growing. Last year, nonprofits working on community-based climate solutions received less than nine billion dollars in funding. This gap is widening quickly, and it's putting our ability to deploy new climate solutions at risk. 
+                            So let me be more specific. Over the last dozen years, we've tested and experimented with many, many ways to actually try to rebalance this equation, to bring community investment more in line with technology investment. You're probably wondering what we actually mean by community investment. Obviously, [it] looks really different from investing in a start-up. What I mean is investing time, political capital and resources in government, particularly local government, and the ability to permit, plan for, integrate, work with new climate technology that's coming to all these local jurisdictions. And on the community side, what I mean is investing in nonprofits, in education, and in hiring locally so that we actually have the capacity in local places to implement these technologies, and then investing in the bridging between these different sectors. What we found is that investing in this more holistic way, on government, communities and technology, not only increases our impact but also leads to better financial outcomes. The companies that we've worked with in our portfolio have now raised over five billion dollars in follow-on funding, and they're operating in more than 60 countries globally.
+                            I'll give you two examples from the portfolio, one in concrete and one in water. These happen to be the two most abundantly consumed materials on the entire planet. So first, concrete. In 2018, we invested in a start-up that introduces captured carbon dioxide into concrete. And the CO2 is then mineralized in the concrete and stored forever in our bridges and buildings. But inventing this very cool new technology alone wouldn't do that much to solve the climate crisis. Real people have to use it. So in addition to implementing it with architects and concrete operators in Hawaii, on the ground, and the Department of Transportation, in a real highway, we brought in local government, to create demand for this new concrete. So with the start-up and our mayor and our city council, we passed a resolution to prefer low-carbon concrete in all new projects. 
+                        </div>
+                        <button id="hide-transcript">Hide Transcript</button>
+                    </div>
+
+                    <hr/>
+                    
+                    <div class="continue-lesson">
+                        <h3>Watch next <i class='bx bxs-right-arrow-square bx-fade-right' style="color: var(--danger-color);font-size: 20px;" ></i></h3>
+                        <div class="lessons">
+                            <div class="lesson-card">
+                                <div class="lesson-card-left">
+                                    <a href="lesson.html" class="lesson-card__index">
+                                        <b>Lesson 2</b>
+                                    </a>
+                                    <div class="lesson-card__time">
+                                        <i class='bx bx-time-five' style='color:#7d7d7d'>10-12-2021</i> 
+                                    </div>
+                                    <div class="lesson-card__content">
+                                        How to make radical climate action the new normal
+                                    </div>
+                                </div>
+                                <a href="lesson.html" class="lesson-card-right">
+                                    <i class="far fa-play-circle"></i>
+                                    <div class="lesson-length">13:45</div>
+                                    <img src="../../assets/images/AlGore_2021T-embed.jpg" alt="Anh dai dien">
+                                </a>
+                                
+                            </div>
+                            <div class="lesson-card">
+                                <div class="lesson-card-left">
+                                    <a href="lesson.html" class="lesson-card__index">
+                                        <b>Lesson 2</b>
+                                    </a>
+                                    <div class="lesson-card__time">
+                                        <i class='bx bx-time-five' style='color:#7d7d7d'>10-12-2021</i> 
+                                    </div>
+                                    <div class="lesson-card__content">
+                                        How to make radical climate action the new normal
+                                    </div>
+                                </div>
+                                <a href="lesson.html" class="lesson-card-right">
+                                    <i class="far fa-play-circle"></i>
+                                    <div class="lesson-length">13:45</div>
+                                    <img src="../../assets/images/AlGore_2021T-embed.jpg" alt="Anh dai dien">
+                                </a>
+                                
+                            </div>
+                            <div class="lesson-card">
+                                <div class="lesson-card-left">
+                                    <a href="#" class="lesson-card__index">
+                                        <b>Lesson 2</b>
+                                    </a>
+                                    <div class="lesson-card__time">
+                                        <i class='bx bx-time-five' style='color:#7d7d7d'>10-12-2021</i> 
+                                    </div>
+                                    <div class="lesson-card__content">
+                                        How to make radical climate action the new normal
+                                    </div>
+                                </div>
+                                <a href="#" class="lesson-card-right">
+                                    <i class="far fa-play-circle"></i>
+                                    <div class="lesson-length">13:45</div>
+                                    <img src="../../assets/images/AlGore_2021T-embed.jpg" alt="Anh dai dien">
+                                </a>
+                                
+                            </div>
+                            <div class="lesson-card">
+                                <div class="lesson-card-left">
+                                    <a href="#" class="lesson-card__index">
+                                        <b>Lesson 2</b>
+                                    </a>
+                                    <div class="lesson-card__time">
+                                        <i class='bx bx-time-five' style='color:#7d7d7d'>10-12-2021</i> 
+                                    </div>
+                                    <div class="lesson-card__content">
+                                        How to make radical climate action the new normal
+                                    </div>
+                                </div>
+                                <a href="#" class="lesson-card-right">
+                                    <i class="far fa-play-circle"></i>
+                                    <div class="lesson-length">13:45</div>
+                                    <img src="../../assets/images/AlGore_2021T-embed.jpg" alt="Anh dai dien">
+                                </a>
+                                
+                            </div>
+                            <div class="lesson-card">
+                                <div class="lesson-card-left">
+                                    <a href="#" class="lesson-card__index">
+                                        <b>Lesson 2</b>
+                                    </a>
+                                    <div class="lesson-card__time">
+                                        <i class='bx bx-time-five' style='color:#7d7d7d'>10-12-2021</i> 
+                                    </div>
+                                    <div class="lesson-card__content">
+                                        How to make radical climate action the new normal
+                                    </div>
+                                </div>
+                                <a href="#" class="lesson-card-right">
+                                    <i class="far fa-play-circle"></i>
+                                    <div class="lesson-length">13:45</div>
+                                    <img src="../../assets/images/AlGore_2021T-embed.jpg" alt="Anh dai dien">
+                                </a>
+                                
+                            </div>
+                            <div class="lesson-card">
+                                <div class="lesson-card-left">
+                                    <a href="#" class="lesson-card__index">
+                                        <b>Lesson 2</b>
+                                    </a>
+                                    <div class="lesson-card__time">
+                                        <i class='bx bx-time-five' style='color:#7d7d7d'>10-12-2021</i> 
+                                    </div>
+                                    <div class="lesson-card__content">
+                                        How to make radical climate action the new normal
+                                    </div>
+                                </div>
+                                <a href="#" class="lesson-card-right">
+                                    <i class="far fa-play-circle"></i>
+                                    <div class="lesson-length">13:45</div>
+                                    <img src="../../assets/images/AlGore_2021T-embed.jpg" alt="Anh dai dien">
+                                </a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>      
+                
+                    
+                <div class="right-container">
+                    <h2>Related Course</h2>
+                    <div class="course-relate-list">
+                        <div class="course-item">
+                            <img src="https://learnenglish.britishcouncil.org/sites/podcasts/files/styles/430x261_4/public/2021-09/GettyImages-1072206958_0.jpg?itok=qJTgFre7" alt="Course Item">
+                            <div class="course-item-information">
+                                <h3 class="course-item__name">Course 1</h3>
+                                <div class="course-item__description">Online one-to-one English tutoring – enjoy your first session for </div>
+                                <div class="course-item__button">
+                                    <a class="btn-primary course-btn" href="lessonList.html">Learn more <i class='bx bx-right-arrow-alt'></i></a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="course-item">
+                            <img src="https://learnenglish.britishcouncil.org/sites/podcasts/files/styles/430x261_4/public/2021-09/GettyImages-1072206958_0.jpg?itok=qJTgFre7" alt="Course Item">
+                            <div class="course-item-information">
+                                <h3 class="course-item__name">Course 1</h3>
+                                <div class="course-item__description">Online one-to-one English tutoring – enjoy your first session for </div>
+                                <div class="course-item__button">
+                                    <a class="btn-primary course-btn" href="lessonList.html">Learn more <i class='bx bx-right-arrow-alt'></i></a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="course-item">
+                            <img src="https://learnenglish.britishcouncil.org/sites/podcasts/files/styles/430x261_4/public/2021-09/GettyImages-1072206958_0.jpg?itok=qJTgFre7" alt="Course Item">
+                            <div class="course-item-information">
+                                <h3 class="course-item__name">Course 1</h3>
+                                <div class="course-item__description">Online one-to-one English tutoring – enjoy your first session for </div>
+                                <div class="course-item__button">
+                                    <a class="btn-primary course-btn" href="lessonList.html">Learn more <i class='bx bx-right-arrow-alt'></i></a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-------------------------FOOTER-------------------------->
+        <section class="footer" id="footer">
+
+        </section>
+    </div>
+    <!----------------------ADD JS FILE------------------------>
+    <script src="../js/loader.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/footer.js"></script>
+    <script src="../js/lesson.js"></script>
+    <script src="../js/darkmode.js"></script>
+</body>

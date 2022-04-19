@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>E Learning</title>
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap"
+            rel="stylesheet"
+        />
+        <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+
+        <link rel="stylesheet" href="../css/index.css" />
+        <link rel="stylesheet" href="../css/register.css" />
+
+        <script src="../js/icons.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    </head>
+    <body>
+        <div class="s-container">
+            <div class="register-container">
+                <div class="register">
+                    <form method="post" class="form-register" id="register-form">
+                        <a href="#" class="form-logo">
+                            <h2 style="text-align: center; font-size: 2rem">E Learning</h2>
+                        </a>
+                        <div class="form-group">
+                            <label for="signup-email">Email</label>
+                            <input
+                                type="email"
+                                id="signup-email"
+                                class="form-group__input"
+                                placeholder="Email"
+                                name="signup-email"
+                            />
+                            <span class="form-group__icon error">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </span>
+                            <span class="form-group__icon success">
+                                <i class="far fa-check-circle"></i>
+                            </span>
+                            <span class="form-group__icon--header">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                            <span class="form-input-err-msg" data-err-for="signup-email"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="signup-password">Password</label>
+                            <input
+                                type="password"
+                                id="signup-password"
+                                class="form-group__input"
+                                placeholder="Password"
+                                name="signup-password"
+                            />
+                            <span class="form-group__icon--header">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                            <span class="form-group__icon error">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </span>
+                            <span class="form-group__icon success">
+                                <i class="far fa-check-circle"></i>
+                            </span>
+                            <span class="form-input-err-msg" data-err-for="signup-password"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-confirmPassword">Confirm Password</label>
+                            <input
+                                type="password"
+                                id="signup-confirmPassword"
+                                class="form-group__input"
+                                placeholder="Confirm Password"
+                                name="signup-confirmPassword"
+                            />
+                            <span class="form-group__icon--header">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                            <span class="form-group__icon error">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </span>
+                            <span class="form-group__icon success">
+                                <i class="far fa-check-circle"></i>
+                            </span>
+                            <span
+                                class="form-input-err-msg"
+                                data-err-for="signup-confirmPassword"
+                            ></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="signup-fullName">Full name</label>
+                            <input
+                                type="text"
+                                id="signup-fullName"
+                                class="form-group__input"
+                                placeholder="Full Name"
+                                name="signup-fullName"
+                            />
+                            <span class="form-group__icon--header">
+                                <i class="fas fa-file-signature"></i>
+                            </span>
+                            <span class="form-group__icon error">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </span>
+                            <span class="form-group__icon success">
+                                <i class="far fa-check-circle"></i>
+                            </span>
+                            <span class="form-input-err-msg" data-err-for="signup-fullName"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="signup-birthday">Birthday</label>
+                            <span class="form-group__icon--header">
+                                <i class="far fa-calendar-plus"></i>
+                            </span>
+                            <input
+                                type="date"
+                                id="signup-birthday"
+                                class="form-group__input"
+                                placeholder="Birthday"
+                                name="signup-birthday"
+                                style="text-indent: 15px"
+                            />
+                            <span class="form-input-err-msg" data-err-for="signup-birthday"></span>
+                        </div>
+
+                        <button class="button btn-primary signup_btn" id="signup-btn">
+                            Sign up
+                        </button>
+                        <div style="text-align: center">
+                            You have an account?
+                            <span class="form-txt">
+                                <a href="login.html">Sign in!</a>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="../js/loader.js"></script>
+        <script src="../js/register.js"></script>
+    </body>
+</html>

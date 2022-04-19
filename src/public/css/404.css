@@ -1,0 +1,28 @@
+@import url("loader.css");
+.not-found {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--background-color);
+}
+.not-found >img {
+    height: 500px;
+}
+.return-home:hover {
+    color: var(--first-color);
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 1024px)  {
+    .not-found >img {
+        height: 400px;
+    }
+}
+
+@media screen and (max-width: 600px)  {
+    .not-found >img {
+        height: 300px;
+    }
+}

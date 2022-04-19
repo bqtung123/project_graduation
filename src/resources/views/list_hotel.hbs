@@ -1,3 +1,4 @@
+<!--
 <div class='container list'>
     {{#each hotels}}
         <div class='card mb-3'>
@@ -39,3 +40,94 @@
         </div>
     {{/each}}
 </div>
+-->
+
+
+<head>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/videoCourses.css">
+    <script src="/js/icons.js"></script>
+    
+</head>
+<body>
+    <!---------------------TOP NAVIGATION-------------------->
+    {{!-- <header class="header" id="header">
+        
+    </header> --}}
+
+    <!--------------------SEARCH BAR------------------------>
+    <section class="search-course" id="search-bar">
+        
+    </section>
+
+    <!--------------------- LESSON LISTS------------------->
+    <section class="new-lesson" id="new-video-lesson">
+        <div class="container">
+            <h2>Course: Test Course</h2>
+        </div>
+        <div class="container">
+            <h2>Lessons</h2>
+        </div>
+        <div class="container video-lesson">
+            <div class="video-lesson__image">
+                <img src="/assets//images/group24_image1.png">
+            </div>
+            <div class="lessons">
+                  <!-- begin -->
+                   {{#each hotels}}
+                <div class="lesson-card">
+                    <div class="lesson-card-left">
+                          <a href="/hotel/{{this.hotel_id}}" class="lesson-card__index">
+                              <b>{{this.hotel_name}}</b>
+                          </a>
+                          <div class="lesson-card__time">
+                            <i class='bx bx-time-five' style='color:#7d7d7d'>{{this.hotel_addr}}</i> 
+                          </div>
+                    </div>
+
+                   
+                    <a href="/hotel/{{this.hotel_id}}" class="lesson-card-right">
+                        <i class="far fa-play-circle"></i>
+                        <div class="lesson-length">13:45</div>
+                        <img src="{{this.hotel_imagelink}}" alt="Anh dai dien">
+                    </a>
+                    <div class="price-source">  
+                        {{#each this.source_list}}
+                       <div class="price-card">
+                            <h6
+                                class='card-title'
+                                style='font-weight: bold;'
+                            >{{this.hotel_price}}</h6>
+                           
+                            <a
+                                href='/hotel/{{this.hotel_id}}?source_id={{this.source_id}}'
+                                style='font-style: italic;color: blue;'
+                            >{{this.source_name}}</a>        
+                        </div>   
+                         <hr>
+                        {{/each}}
+                       
+                     </div> 
+                    
+                </div>
+                  <!-- end -->
+                  
+               
+             {{/each}}
+            </div>
+
+        </div>
+    </section>
+
+    <!----------------------FOOTER----------------------->
+    <section class="footer" id="footer">
+
+    </section>
+
+    <!--------------------ADD JS------------------------->
+    <script src="/js/loader.js"></script>
+    <script src="/js/navigation.js"></script>
+    <script src="/js/searchbar.js"></script>
+    <script src="/js/footer.js"></script>
+    <script src="/js/darkmode.js"></script>
+</body>

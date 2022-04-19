@@ -1,3 +1,4 @@
+<!--
 <div class='container-fluid'>
 
     <div class='card mb-3' style='margin-top: 30px;'>
@@ -50,3 +51,146 @@
         {{/each}}
     </div>
 </div>
+-->
+
+
+    <link rel='stylesheet' href='/css/lesson.css' />
+    <link rel='stylesheet' href='/css/index.css' />
+    <script src='/js/icons.js'></script>
+
+
+        <!----------------TOP NAVIGATION-------------------->
+        {{!-- <header class="header" id="header">
+            
+        </header> --}}
+
+        <!----------------LESSON-CONTENT--------------------->
+        <section>
+            <div class="lesson-detail container">
+                <div class="course-name">
+                    <h2><i style="color: crimson;font-size: 20px; font-weight: 200;" class='bx bxl-youtube'></i> {{hotel.hotel_name}} </h2>
+                </div>
+                <div class="lesson" style="margin: 0px 0px 20px 0px;">
+                    <div class="lesson__title">
+                        <h3><i style="color: crimson;font-size: 20px; font-weight: 200;" class='bx bxs-book-alt'></i> {{hotel.hotel_addr}} </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="lesson-container container">
+                <div class="left-container">
+                       <img
+                title='vimeo-player'
+                src='{{hotel.hotel_imagelink}}'
+                width="100%" height="600px"
+                frameborder='0'
+                allowfullscreen
+            ></img>
+                    {{!-- <iframe width="100%" height="600px" src="http://www.youtube.com/embed/IStS6E0uGhE?autoplay=1" frameborder="0" allowfullscreen></iframe> --}}
+                    <div class="tab">
+                        <button value="transcript" class="tab-links" onclick="openTab(event, 'transcript')" id="defaultOpen"><i class="far fa-bookmark"></i> Transcript</button>
+                        <button value="quiz" class="tab-links" onclick="openTab(event, 'quiz')"><i class="far fa-question-circle"></i> Quiz</button>
+                    </div>
+                    <div id="quiz" class="tab-content">
+                        <p>Answer the following questions about the interview.</p>
+                        <!-- begin -->
+                           
+                           {{#each questions}}
+                                <div class="qiz-question">
+                                    <div class="question__content">{{this.content}} </div>
+                                    <!-- begin-->
+                                        {{#each this.answer}}
+                                        <div class='answer_card'>
+                                            <input type="checkbox" name="question1" class="answer1" id="{{this._id}}" value="{{this.content}}">
+                                            <label for="answer1_A">{{this.content}}</label>
+                                             <input type="hidden" class='isTrue' id="isTrue_{{this._id}}" name="isTrue" value="{{this.isTrue}}">
+                                            </br>
+                                        </div>
+                                         {{/each}}
+                                    <!--end-->
+                                </div>
+                          {{/each}}
+                          <!-- begin -->
+                      
+                        
+                        <button id="submit-answer"  ><i class="far fa-paper-plane" ></i> Submit Answer</button>
+                        <button id="reset-answer" ><i class="fas fa-redo-alt"></i> Reset Answer</button>
+                    </div>  
+                    <div id="transcript" class="tab-content">
+                        
+                        <div id="transcript__content">
+                          {{lesson.transcription}}
+                        </div>
+                        <button id="hide-transcript">Hide Transcript</button>
+                    </div>
+
+                    <hr/>
+                    
+                    <div class="continue-lesson">
+                        <h3>Watch next <i class='bx bxs-right-arrow-square bx-fade-right' style="color: var(--danger-color);font-size: 20px;" ></i></h3>
+                        <div class="lessons">
+                            {{!-- begin --}}
+                           {{#each relative_lessons}}
+                            <div class="lesson-card">
+                                <div class="lesson-card-left">
+                                    <a href="/lessons/{{this.slug}}" class="lesson-card__index">
+                                        <b>{{this.name}}</b>
+                                    </a>
+                                    <div class="lesson-card__time">
+                                        <i class='bx bx-time-five' style='color:#7d7d7d'>{{this.createdAt}}</i> 
+                                    </div>
+                                </div>
+                                <a href="lesson.html" class="lesson-card-right">
+                                    <i class="far fa-play-circle"></i>
+                                    <div class="lesson-length">13:45</div>
+                                    <img src="/{{this.imageUrl}}" alt="Anh dai dien">
+                                </a>
+                                
+                            </div>
+                            {{/each}}
+
+                              {{!-- end--}}
+                        
+                        
+                        </div>
+                    </div>
+                    
+                </div>      
+                
+                    
+                <div class="right-container">
+                    <h2>Sourse</h2>
+                    <div class="course-relate-list">
+                        {{#each this.sources}}
+                            <div class="course-item">
+                             {{#image this.source_name}}
+                            {{/image}}
+        
+
+                                <div class="course-item-information">
+                                    
+                                    <h3 class="course-item__name">{{this.source_name}}</h3>
+                                    <h2 class="course-item__description">{{this.hotel_price}}</h2>
+                                    <a class="btn-primary course-btn" href="{{this.hotel_orderlink}}" target="_blank">Go to Order <i class='bx bx-right-arrow-alt'></i></a>
+                                    <div style="margin-bottom: 20px"></div>
+                                </div>
+                            </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-------------------------FOOTER-------------------------->
+        <section class="footer" id="footer">
+
+        </section>
+    </div>
+    <!----------------------ADD JS FILE------------------------>
+    <script src="/js/loader.js"></script>
+    <script src="/js/navigation.js"></script>
+    <script src="/js/footer.js"></script>
+    
+    <script src="/js/darkmode.js"></script>
+    <script src="/js/lesson.js"></script>
+
+</body>
