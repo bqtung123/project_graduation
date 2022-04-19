@@ -1,0 +1,41 @@
+<div class='container list'>
+    {{#each hotels}}
+        <div class='card mb-3'>
+            <div class='row g-0'>
+                <div class='col-md-3'>
+                    <a href='/hotel/{{this.hotel_id}}'>
+                        <img
+                            src='{{this.hotel_imagelink}}'
+                            class='img-fluid rounded-start'
+                            alt='...'
+                        /></a>
+                </div>
+                <div class='col-md-6'>
+                    <div class='card-body'>
+                        <h5 class='card-title'><a
+                                href='/hotel/{{this.hotel_id}}'
+                            >{{this.hotel_name}}</a></h5>
+                        <p class='card-text'>{{this.hotel_addr}}</p>
+
+                    </div>
+                </div>
+                {{! begin }}
+                <div class='col-md-3'>
+                    {{#each this.source_list}}
+                        <div class='card-body'>
+                            <h5
+                                class='card-title'
+                                style='font-weight: bold;'
+                            >{{this.hotel_price}}</h5>
+                            <a
+                                href='/hotel/{{this.hotel_id}}?source_id={{this.source_id}}'
+                                style='font-style: italic;'
+                            >{{this.source_name}}</a>
+                        </div>
+                    {{/each}}
+                </div>
+                {{! end }}
+            </div>
+        </div>
+    {{/each}}
+</div>

@@ -1,0 +1,258 @@
+@import url('config.css');
+@import url('footer.css');
+@import url('navigation.css');
+@import url('loader.css');
+
+/*============================ SEARCH BAR =============================*/
+.search-container {
+    margin-bottom: 25px;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+}
+
+.search-bar__input {
+    height: 50px;
+    margin-right: 20px;
+    text-indent: 20px;
+    outline: none;
+    -webkit-box-shadow: var(--box-shadow);
+    -moz-box-shadow: var(--box-shadow);
+    box-shadow: var(--box-shadow);
+    border: none;
+    font-size: var(--font-size);
+    position: relative;
+}
+
+.search-bar__input:focus {
+    box-shadow: var(--box-shadow-hover);
+}
+
+.search-bar__icon {
+    position: absolute;
+    right: 50px;
+}
+
+.search-bar__btn {
+    height: 50px;
+    padding-right: 20px;
+    padding-left: 20px;
+    text-align: center;
+    border: 1px solid var(--primary-color-btn);
+    overflow: unset;
+}
+
+/*======================== COURSE LIST============================ */
+.course-list {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.course-item {
+    background-color: var(--background-color-item);
+    width: 290px;
+    /* height: 466px; */
+    margin: 20px 10px;
+    position: relative;
+    transition: 0.5s;
+    left: 0px;
+    box-shadow: var(--box-shadow);
+    -webkit-box-shadow: var(--box-shadow);
+    -moz-box-shadow: var(--box-shadow);
+    border: var(--border-none);
+}
+
+.course-item:hover {
+    -webkit-box-shadow: var(--box-shadow-hover);
+    -moz-box-shadow: var(--box-shadow-hover);
+    box-shadow: var(--box-shadow-hover);
+}
+
+.course-item > img {
+    width: 100%;
+    min-width: 290px;
+}
+
+.course-item__name {
+    font-size: 1.25rem;
+    color: #0062e4;
+    font-weight: 400;
+}
+
+.course-item-information {
+    width: 90%;
+    margin: 0 auto;
+    font-size: var(--normal-font-size);
+}
+
+.course-item__button {
+    margin-top: 20px;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.course-btn:hover {
+    opacity: 0.75;
+    transition: 0.5s ease-in-out;
+    color: #ffffff;
+    background-color: var(--primary-color-btn);
+    border-radius: var(--border-radius);
+    width: 60%;
+}
+
+.course-item__button > button {
+    width: 50%;
+    height: 40px;
+    margin-bottom: 20px;
+    border: none;
+}
+
+.course-item__button > a {
+    display: flex;
+    width: 50%;
+    height: 40px;
+    border: none;
+    text-align: center;
+    font-size: var(--button-font-size);
+    margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.course-item__button > a:hover {
+    font-size: var(--button-font-size-hover);
+}
+/*==================================FAQ=========================================*/
+.faqs {
+    width: 60%;
+}
+
+.faq-list-item {
+    background-color: var(--background-color-item);
+    border: 1px solid #e0e0e0;
+    margin-bottom: 10px;
+    padding: 12px;
+}
+
+.question {
+    background-color: transparent;
+    border: none;
+    outline: none !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-height: 84px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.faq-list-item__icon {
+    font-size: 2rem;
+    color: var(--info--color);
+}
+
+.faq-list-item__detail {
+    padding: 1.5rem !important;
+    overflow: hidden;
+}
+
+[hiddenicon='true'] {
+    display: none;
+}
+
+[hiddenicon='false'] {
+    display: block;
+}
+
+.question > h3 {
+    font-weight: 600;
+}
+
+/*===============================END-FAQ======================================*/
+
+/*==================================NEW COURSE================================*/
+
+.new-course {
+    width: 100%;
+    position: relative;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+}
+
+.fa-angle-right,
+.fa-angle-left {
+    font-size: 30px;
+    position: absolute;
+}
+
+.fa-angle-right {
+    right: 7%;
+}
+
+.fa-angle-left {
+    left: 7%;
+}
+
+.carousel {
+    position: relative;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    justify-content: flex-start;
+}
+
+.carousel::-webkit-scrollbar {
+    visibility: hidden;
+}
+
+#next,
+#previous {
+    cursor: pointer;
+}
+
+#next:hover,
+#previous:hover {
+    color: #ff0000;
+    font-size: 40px;
+}
+
+/*=======================SCROLL=============================*/
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.left-to-right {
+    transform: translateX(-150%);
+    transition: 1s ease-in-out;
+}
+
+.left-to-right.start {
+    transform: translateX(0);
+}
+
+.right-to-left {
+    transform: translateX(150%);
+    transition: 1s ease-in-out;
+}
+
+.right-to-left.start {
+    transform: translateX(0);
+}
+
+.image-scroll {
+    width: 100%;
+}
