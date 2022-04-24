@@ -21,7 +21,9 @@ const hbs = handlebars.create({
             if (a == 'Booking.com')
                 return ' <img src="https://is4-ssl.mzstatic.com/image/thumb/Purple126/v4/98/b0/8f/98b08f25-f96d-4847-f023-20b682781e83/source/512x512bb.jpg" alt="Course Item">';
         },
-        sum: (a, b) => a + b,
+        compare: (a, b) => {
+            if (a !== b) return '<a href="?page=' + b + '">' + b + '</a>';
+        },
         isVideo: (a) => a === 'video',
         warn: (a, b) => {
             return a.find((e) => e.param === b) ? 'invalid' : '';

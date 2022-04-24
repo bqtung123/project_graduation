@@ -2,6 +2,8 @@ const Hotel = require('../models/Hotel');
 const Comment = require('../models/Comment');
 const Source = require('../models/Source');
 const { mongooseToObject, multipleMongooseToObject } = require('../../util/mongoose');
+
+const ITEMS_PER_PAGE = 2;
 class SiteController {
     index(req, res) {
         res.render('home');
@@ -31,6 +33,7 @@ class SiteController {
     }
 
     async show(req, res, next) {
+        const page = +req.query.page || 1;
         const hotel = await Hotel.findOne({ hotel_id: req.params.id }).lean();
         const query = { hotel_id: req.params.id };
         if (req.query.source_id) {
@@ -38,13 +41,26 @@ class SiteController {
         }
         console.log(query);
         const sources = await Source.find(query).lean();
-        // res.json(hotel);
+        let totalItems;
         Comment.find(query)
+            .countDocuments()
+            .then((numProducts) => {
+                totalItems = numProducts;
+                return Comment.find(query)
+                    .skip((page - 1) * ITEMS_PER_PAGE)
+                    .limit(ITEMS_PER_PAGE);
+            })
             .then((comments) => {
                 res.render('hotel/show', {
                     comments: multipleMongooseToObject(comments),
                     hotel: hotel,
                     sources: sources,
+                    currentPage: page,
+                    hasNextPage: ITEMS_PER_PAGE * page < totalItems,
+                    hasPreviousPage: page > 1,
+                    nextPage: page + 1,
+                    previousPage: page - 1,
+                    lastPage: Math.ceil(totalItems / ITEMS_PER_PAGE),
                 });
             })
             .catch(next);

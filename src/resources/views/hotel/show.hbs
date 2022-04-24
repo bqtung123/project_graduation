@@ -136,7 +136,24 @@
                         <button id="hide-transcript">Hide Transcript</button>
                         {{/each}}
                     </div>
+                    <section class="pagination">
+                        {{#compare currentPage 1}}
+                        {{/compare}}
+                         {{#if hasPreviousPage }}
+                            {{#compare 1 previousPage}}
+                            {{/compare}} 
+                        {{/if}}
+                        <a href="?page={{currentPage}}" class="active">{{ currentPage}}</a>
+                       
+                        {{#if hasNextPage }}
+                            {{#compare lastPage nextPage}}
+                            {{/compare}} 
+                        {{/if}}
+                        {{#compare currentPage lastPage}}
+                        {{/compare}}
 
+                    </section>
+                    <br>
                     <hr/>
                     
                     <div class="continue-lesson">
