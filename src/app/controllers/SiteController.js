@@ -4,11 +4,13 @@ const Source = require('../models/Source');
 const { mongooseToObject, multipleMongooseToObject } = require('../../util/mongoose');
 
 const ITEMS_PER_PAGE = 2;
+const ITEMS_PER_PAGE_1 = 8;
 class SiteController {
     index(req, res) {
         res.render('home');
     }
     async search(req, res, next) {
+        const page = +req.query.page || 1;
         console.log(req.query.hotel);
         const source = await Source.find({}).lean();
         const hotels = await Hotel.find({}).lean();
@@ -17,9 +19,7 @@ class SiteController {
             let hotel_id = hotels[i].hotel_id.toString();
 
             const sources = source.filter((e) => e.hotel_id.toString() === hotel_id);
-            // for (let j = 0; j < sources.length; j++) {
-            //     hotels[i].source_list.push(sources[j]);
-            // }
+
             hotels[i].source_list = hotels[i].source_list.concat(sources);
         }
 
@@ -27,8 +27,19 @@ class SiteController {
             (e) => e.hotel_name.toLowerCase().indexOf(req.query.hotel.toLowerCase()) !== -1,
         );
 
+        let totalItems = resultHotels.length;
+        let resultHotelsOnPage = resultHotels.slice(
+            (page - 1) * ITEMS_PER_PAGE_1,
+            (page - 1) * ITEMS_PER_PAGE_1 + ITEMS_PER_PAGE_1,
+        );
         res.render('list_hotel', {
-            hotels: resultHotels,
+            hotels: resultHotelsOnPage,
+            currentPage: page,
+            hasNextPage: ITEMS_PER_PAGE_1 * page < totalItems,
+            hasPreviousPage: page > 1,
+            nextPage: page + 1,
+            previousPage: page - 1,
+            lastPage: Math.ceil(totalItems / ITEMS_PER_PAGE_1),
         });
     }
 

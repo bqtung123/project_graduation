@@ -24,6 +24,9 @@ const hbs = handlebars.create({
         compare: (a, b) => {
             if (a !== b) return '<a href="?page=' + b + '">' + b + '</a>';
         },
+        compareTo: (a, b) => {
+            if (a !== b) return '<a onclick="getURL(' + b + ');">' + b + '</a>';
+        },
         isVideo: (a) => a === 'video',
         warn: (a, b) => {
             return a.find((e) => e.param === b) ? 'invalid' : '';

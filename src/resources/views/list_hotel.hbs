@@ -44,6 +44,7 @@
 
 
 <head>
+     <link rel='stylesheet' href='/css/lesson.css' />
     <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="/css/videoCourses.css">
     <script src="/js/icons.js"></script>
@@ -112,9 +113,26 @@
                   
                
              {{/each}}
-            </div>
-
+              <section class="pagination">
+                 {{#compareTo currentPage 1}}
+                        {{/compareTo}}
+                         {{#if hasPreviousPage }}
+                            {{#compareTo 1 previousPage}}
+                            {{/compareTo}}
+                        {{/if}}
+                        <a href="?page={{currentPage}}" class="active">{{ currentPage}}</a>
+                       
+                        {{#if hasNextPage }}
+                            {{#compareTo lastPage nextPage}}
+                            {{/compareTo}} 
+                        {{/if}}
+                        {{#compareTo currentPage lastPage}}
+                        {{/compareTo}}
+             </section>
+             </section>
+            </div>  
         </div>
+      
     </section>
 
     <!----------------------FOOTER----------------------->
@@ -129,3 +147,16 @@
     <script src="/js/footer.js"></script>
     <script src="/js/darkmode.js"></script>
 </body>
+<script>
+     function getURL(page) {
+        const url = new URL(window.location.href);
+       
+        if (!url.searchParams.get('page')) {
+            url.searchParams.append('page', page);
+        }
+        else{
+            url.searchParams.set('page', page);
+        }
+        window.location.replace(url);
+    }
+</script>
