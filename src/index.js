@@ -18,7 +18,7 @@ const hbs = handlebars.create({
                 return ' <img src="https://play-lh.googleusercontent.com/SOHKWI6RznrRqWVUSb6THa2bJNQPvjOTLsd4CSad_GCahf2fe2p4vE8FOKjtuudmL6E=s180-rw" alt="Course Item">';
             if (a == 'Booking.com')
                 return ' <img src="https://play-lh.googleusercontent.com/eJuvWSnbPwEWAQCYwl8i9nPJXRzTv94JSYGGrKIu0qeuG_5wgYtb982-2F_jOGtIytY=s180-rw" alt="Course Item">';
-            if (a == 'Booking.com')
+            if (a == 'Chudu24.com')
                 return ' <img src="https://is4-ssl.mzstatic.com/image/thumb/Purple126/v4/98/b0/8f/98b08f25-f96d-4847-f023-20b682781e83/source/512x512bb.jpg" alt="Course Item">';
         },
         compare: (a, b) => {
@@ -27,7 +27,12 @@ const hbs = handlebars.create({
         compareTo: (a, b) => {
             if (a !== b) return '<a onclick="getURL(' + b + ');">' + b + '</a>';
         },
-        isVideo: (a) => a === 'video',
+        display3DotsPrevious: (a, b) => {
+            if (a !== b - 1 && a !== b) return '...';
+        },
+        display3DotsLast: (a, b) => {
+            if (a !== b + 1 && a !== b) return '...';
+        },
         warn: (a, b) => {
             return a.find((e) => e.param === b) ? 'invalid' : '';
         },

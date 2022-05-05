@@ -1,23 +1,23 @@
 const dataFAQs = [
     {
         id: '1',
-        question: 'How do you ask for a room booking?',
-        detail: "Here are some phrases you can use on the phone to make a booking in English. I`d like to book a (single | double | twin) room for two nights, please. I'd like to make a reservation for a (single / double / twin) room for the night of (date), please. Do you have any double rooms left for the weekend?",
+        question: 'Tôi có thể làm gì nếu phát hiện thông tin đặt phòng không chính xác?',
+        detail: 'Xin vui lòng liên hệ với chúng tôi càng sớm càng tốt bằng email cs.vn@hutchgo.com và chúng tôi sẽ cố gắng liên hệ với khách sạn để sắp xếp thêm. Nếu Quý khách không thể liên hệ với chúng tôi, vui lòng liên hệ trực tiếp với khách sạn để được hỗ trợ.',
     },
     {
         id: '2',
-        question: 'What is the process of booking room in hotel?',
-        detail: 'Once you have selected your hotel room, you can reserve it online through the hotel website. You will need to provide basic information about yourself for the booking, such as your full name and your travel dates. You can also reserve the room by calling the hotel directly.',
+        question: 'Tôi có thể nhận được phiếu đặt phòng khách sạn bằng cách nào?',
+        detail: 'Quý khách sẽ nhận được thư xác nhận qua email sau khi yêu cầu đặt phòng được xác nhận. Quý khách nên in ra để nhận phòng.',
     },
     {
         id: '3',
-        question: 'What is a double room?',
-        detail: 'Double room: double rooms are assigned to two people; expect one double bed, or two twin beds depending on the hotel. Triple room: as the name might suggest, this room is equipped for three people to stay. The room will have a combination of either three twin beds, one double bed and a twin, or two double beds.',
+        question: 'Trong trường hợp có bão hay thời tiết không thuận lợi?',
+        detail: 'Xin vui lòng vui lòng liên hệ với chúng tôi nếu lịch trình của Quý khách bị ảnh hưởng bởi vấn đề thời tiết. hutchgo.com sẽ không tính bất kỳ khoản phí nào khi hủy phòng khách sạn. Tuy nhiên, phí hủy phòng khách sạn sẽ tùy thuộc vào quyết định cuối cùng của khách sạn. Nếu Quý khách không thể liên hệ với chúng tôi, vui lòng liên hệ trực tiếp với khách sạn để được hỗ trợ.',
     },
     {
         id: '4',
-        question: 'What is no show in hotel?',
-        detail: "A reservation becomes a No-Show when the customer who has a guaranteed reservation does not cancel it before the hotel's cancellation deadline, and never arrives to claim the reservation .",
+        question: 'Hủy đặt phòng bằng cách nào?',
+        detail: 'Quý khách có thể trực tiếp hủy đặt phòng tại "Chỉnh sửa Thông tin Đặt chỗ của tôi". Xin lưu ý rằng việc hủy đặt phòng, đổi phòng hoặc hoàn tiền tùy thuộc vào chính sách của khách sạn. Sau khi xác nhận, có một số yêu cầu đặt phòng không thể bị hủy bỏ, thay đổi hoặc hoàn tiền.',
     },
 ];
 
@@ -38,7 +38,7 @@ const faqsElement = document.getElementById('faqs');
 const faqsContent =
     '<div class="container faqs" >' +
     '<div class="faq-title">' +
-    '<h2 style="margin-bottom: 30px">Frequently Asked Questions about Learning English</h2>' +
+    '<h2 style="margin-bottom: 30px">Một vài câu hỏi thường gặp</h2>' +
     '</div>' +
     '<div class="faq-list-container">' +
     '<ul class="faq-list">' +

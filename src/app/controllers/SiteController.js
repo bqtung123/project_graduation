@@ -1,6 +1,5 @@
 const Hotel = require('../models/Hotel');
 const Comment = require('../models/Comment');
-const Source = require('../models/Source');
 const { mongooseToObject, multipleMongooseToObject } = require('../../util/mongoose');
 
 const ITEMS_PER_PAGE = 2;
@@ -12,16 +11,8 @@ class SiteController {
     async search(req, res, next) {
         const page = +req.query.page || 1;
         console.log(req.query.hotel);
-        const source = await Source.find({}).lean();
+
         const hotels = await Hotel.find({}).lean();
-        for (let i = 0; i < hotels.length; i++) {
-            hotels[i].source_list = [];
-            let hotel_id = hotels[i].hotel_id.toString();
-
-            const sources = source.filter((e) => e.hotel_id.toString() === hotel_id);
-
-            hotels[i].source_list = hotels[i].source_list.concat(sources);
-        }
 
         const resultHotels = hotels.filter(
             (e) => e.hotel_name.toLowerCase().indexOf(req.query.hotel.toLowerCase()) !== -1,
@@ -34,6 +25,7 @@ class SiteController {
         );
         res.render('list_hotel', {
             hotels: resultHotelsOnPage,
+            totalItems: totalItems,
             currentPage: page,
             hasNextPage: ITEMS_PER_PAGE_1 * page < totalItems,
             hasPreviousPage: page > 1,
@@ -45,13 +37,11 @@ class SiteController {
 
     async show(req, res, next) {
         const page = +req.query.page || 1;
-        const hotel = await Hotel.findOne({ hotel_id: req.params.id }).lean();
-        const query = { hotel_id: req.params.id };
-        if (req.query.source_id) {
-            query.source_id = req.query.source_id;
-        }
+        const hotel = await Hotel.findOne({ _id: req.params.id }).lean();
+        let query;
+        if (hotel.hasOwnProperty('hotel_id')) query = { hotel_id: hotel.hotel_id };
+        else query = { hotel_name: hotel.hotel_name };
         console.log(query);
-        const sources = await Source.find(query).lean();
         let totalItems;
         Comment.find(query)
             .countDocuments()
@@ -65,7 +55,6 @@ class SiteController {
                 res.render('hotel/show', {
                     comments: multipleMongooseToObject(comments),
                     hotel: hotel,
-                    sources: sources,
                     currentPage: page,
                     hasNextPage: ITEMS_PER_PAGE * page < totalItems,
                     hasPreviousPage: page > 1,
