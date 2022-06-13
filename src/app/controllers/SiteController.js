@@ -2,11 +2,12 @@ const Hotel = require('../models/Hotel');
 const Comment = require('../models/Comment');
 const { mongooseToObject, multipleMongooseToObject } = require('../../util/mongoose');
 
-const ITEMS_PER_PAGE = 2;
+const ITEMS_PER_PAGE = 5;
 const ITEMS_PER_PAGE_1 = 8;
 class SiteController {
-    index(req, res) {
+    index(req, res, next) {
         res.render('home');
+        next();
     }
     async search(req, res, next) {
         const page = +req.query.page || 1;
@@ -64,6 +65,10 @@ class SiteController {
                 });
             })
             .catch(next);
+    }
+
+    log(req, res, next) {
+        console.log(' Hello World ');
     }
 }
 
