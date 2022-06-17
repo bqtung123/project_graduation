@@ -4,6 +4,6 @@ const siteController = require('../app/controllers/SiteController');
 
 router.get('/search', siteController.search);
 router.get('/hotel/:id', siteController.show);
-router.get('/', siteController.index, siteController.log);
+router.get('/', siteController.index);
 
 module.exports = router;

@@ -5,7 +5,8 @@ const path = require('path');
 const route = require('./routes');
 app.use(express.static(path.join(__dirname, 'public')));
 const db = require('./config/db');
-
+const { spawn } = require('child_process');
+var fs = require('fs');
 // Connect to db
 db.connect();
 
@@ -36,12 +37,66 @@ const hbs = handlebars.create({
         warn: (a, b) => {
             return a.find((e) => e.param === b) ? 'invalid' : '';
         },
+        sum: (a,b) => a+b,
     },
 });
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources/views'));
 // template engine
+
+// crawl data
+app.get('/pipelineComment', (req,res, next) => {
+
+    const child = spawn('scrapy',["crawl","example","-O","comment.json"],{cwd: 'C:/Users/FPTSHOP/OneDrive - Hanoi University of Science and Technology/Desktop/project/comment/'})
+  
+    child.stdout.on('data', (data)=> {
+      console.log(`stdout: ${data}`)
+    })
+    
+    
+    child.stderr.on('data', (data)=> {
+      console.log(`stderr: ${data}`)
+    })
+    
+    child.on("error", (error) => console.log(`error: ${error.message}`))
+    
+    child.on('close', (code) => {
+      console.log(`Crawling data closed with code ${code}`);
+      next();
+    });
+  }, (req,res, next) => {
+    const child = spawn('python',["analys.py"],{cwd: 'C:/Users/FPTSHOP/OneDrive - Hanoi University of Science and Technology/Desktop/project/processing_data'})
+    
+    child.stdout.on('data', (data)=> {
+      console.log(`stdout: ${data}`)
+    })
+    
+    child.stderr.on('data', (data)=> {
+      console.log(`stderr: ${data}`)
+    })
+    
+    child.on("error", (error) => console.log(`error: ${error.message}`))
+    
+    child.on('close', (code) => {
+      console.log(`Analysing data closed with code ${code}`);
+      next();
+    })
+  
+  },async (req, res) => {
+  
+    var filePath = 'C:/Users/FPTSHOP/OneDrive - Hanoi University of Science and Technology/Desktop/project/comment/comment.json';
+    if (fs.existsSync(filePath)) {
+     await fs.unlinkSync(filePath);
+      console.log('Deleted file completed');
+    }
+    else {
+     console.log('not found file');
+    }
+    console.log('Pipeline terminated');
+  
+    res.redirect('/admin');
+  })
 
 route(app);
 

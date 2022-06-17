@@ -5,9 +5,8 @@ const { mongooseToObject, multipleMongooseToObject } = require('../../util/mongo
 const ITEMS_PER_PAGE = 5;
 const ITEMS_PER_PAGE_1 = 8;
 class SiteController {
-    index(req, res, next) {
+    index(req, res) {
         res.render('home');
-        next();
     }
     async search(req, res, next) {
         const page = +req.query.page || 1;
@@ -65,10 +64,6 @@ class SiteController {
                 });
             })
             .catch(next);
-    }
-
-    log(req, res, next) {
-        console.log(' Hello World ');
     }
 }
 
