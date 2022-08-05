@@ -20,9 +20,11 @@ class ExampleSpider(scrapy.Spider):
             yield response.follow(next_page, callback=self.parse)
 
     def start_scraping(self, response):
-        for comment in response.css('q.XllAv span::text').getall():
+        # 
+        for comment in response.css('q.QewHA span::text').getall():
             yield {
-                'hotel_name': response.css('h1.fkWsC::text').get(),
+                # 
+                'hotel_name': response.css('h1.QdLfr::text').get(),
                 'comment': comment,
                 'source_name': 'Tripadvisor.com'
             }
