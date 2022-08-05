@@ -30,7 +30,7 @@
                   <!-- begin -->
                    {{#each hotels}}
                 <div class="lesson-card">
-                    <div class="lesson-card-left">
+                    <div class="lesson-card-left" style="width: 350px;">
                           <a href="/hotel/{{this._id}}" class="lesson-card__index">
                               <b>{{this.hotel_name}}</b>
                           </a>
@@ -41,21 +41,15 @@
 
                    
                     <a href="/hotel/{{this._id}}" class="lesson-card-right">
-                        <img src="{{this.hotel_imagelink}}" alt="Anh dai dien">
+                        <img src="{{this.hotel_imagelink}}" alt="Anh dai dien" style="width: 190px;">
                     </a>
                     <div class="price-source">  
                        {{#each this.source}}
                        <div class="price-card">
-                            <h6
-                                class='card-title'
-                                style='font-weight: bold;'
-                            >{{this.hotel_price}}</h6>
-                           
-                            <a 
-                                href="{{this.hotel_orderlink}}"
-                                target="_blank"
-                                style='font-style: italic;color: blue;'
-                            >{{this.source_name}}</a>        
+                          {{#if this.hotel_price }}
+                            <h6 class='card-title' style='font-weight: bold; width: 109px;'>{{this.hotel_price}}</h6>
+                            <a href="{{this.hotel_orderlink}}" target="_blank" style='font-style: italic;color: blue;'>{{this.source_name}}</a>
+                          {{/if}}      
                         </div>   
                          <hr>
                         {{/each}}
