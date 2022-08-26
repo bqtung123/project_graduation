@@ -1,49 +1,6 @@
-<!--
-<div class='container list'>
-    {{#each hotels}}
-        <div class='card mb-3'>
-            <div class='row g-0'>
-                <div class='col-md-3'>
-                    <a href='/hotel/{{this.hotel_id}}'>
-                        <img
-                            src='{{this.hotel_imagelink}}'
-                            class='img-fluid rounded-start'
-                            alt='...'
-                        /></a>
-                </div>
-                <div class='col-md-6'>
-                    <div class='card-body'>
-                        <h5 class='card-title'><a
-                                href='/hotel/{{this.hotel_id}}'
-                            >{{this.hotel_name}}</a></h5>
-                        <p class='card-text'>{{this.hotel_addr}}</p>
-
-                    </div>
-                </div>
-                {{! begin }}
-                <div class='col-md-3'>
-                    {{#each this.source_list}}
-                        <div class='card-body'>
-                            <h5
-                                class='card-title'
-                                style='font-weight: bold;'
-                            >{{this.hotel_price}}</h5>
-                            <a
-                                href='/hotel/{{this.hotel_id}}?source_id={{this.source_id}}'
-                                style='font-style: italic;'
-                            >{{this.source_name}}</a>
-                        </div>
-                    {{/each}}
-                </div>
-                {{! end }}
-            </div>
-        </div>
-    {{/each}}
-</div>
--->
-
 
 <head>
+     <link rel='stylesheet' href='/css/lesson.css' />
     <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="/css/videoCourses.css">
     <script src="/js/icons.js"></script>
@@ -62,22 +19,19 @@
 
     <!--------------------- LESSON LISTS------------------->
     <section class="new-lesson" id="new-video-lesson">
-        <div class="container">
-            <h2>Course: Test Course</h2>
-        </div>
-        <div class="container">
-            <h2>Lessons</h2>
-        </div>
+       
+        
         <div class="container video-lesson">
             <div class="video-lesson__image">
-                <img src="/assets//images/group24_image1.png">
+                <img src="/assets//images/Globalization-rafiki.png">
             </div>
             <div class="lessons">
+                <h2>Tìm thấy {{totalItems}} kết quả</h2>
                   <!-- begin -->
                    {{#each hotels}}
                 <div class="lesson-card">
-                    <div class="lesson-card-left">
-                          <a href="/hotel/{{this.hotel_id}}" class="lesson-card__index">
+                    <div class="lesson-card-left" style="width: 350px;">
+                          <a href="/hotel/{{this._id}}" class="lesson-card__index">
                               <b>{{this.hotel_name}}</b>
                           </a>
                           <div class="lesson-card__time">
@@ -86,23 +40,19 @@
                     </div>
 
                    
-                    <a href="/hotel/{{this.hotel_id}}" class="lesson-card-right">
-                        <img src="{{this.hotel_imagelink}}" alt="Anh dai dien">
+                    <a href="/hotel/{{this._id}}" class="lesson-card-right">
+                        <img src="{{this.hotel_imagelink}}" alt="Anh dai dien" style="width: 190px;">
                     </a>
                     <div class="price-source">  
-                        {{#each this.source_list}}
+                       {{#each this.source}}
                        <div class="price-card">
-                            <h6
-                                class='card-title'
-                                style='font-weight: bold;'
-                            >{{this.hotel_price}}</h6>
-                           
-                            <a
-                                href='/hotel/{{this.hotel_id}}?source_id={{this.source_id}}'
-                                style='font-style: italic;color: blue;'
-                            >{{this.source_name}}</a>        
+                          {{#if this.hotel_price }}
+                            <h6 class='card-title' style='font-weight: bold; width: 109px;'>{{this.hotel_price}}</h6>
+                            <a href="{{this.hotel_orderlink}}" target="_blank" style='font-style: italic;color: blue;'>{{this.source_name}}</a>
+                            <hr>
+                          {{/if}}      
                         </div>   
-                         <hr>
+                        
                         {{/each}}
                        
                      </div> 
@@ -112,9 +62,31 @@
                   
                
              {{/each}}
-            </div>
-
+              <section class="pagination">
+                 {{#compareTo currentPage 1}}
+                        {{/compareTo}}
+                         {{#if hasPreviousPage }}
+                            {{#display3DotsPrevious 1 previousPage }}
+                            {{/display3DotsPrevious}}
+                            {{#compareTo 1 previousPage}}
+                            {{/compareTo}}
+                        {{/if}}
+                        <a href="?page={{currentPage}}" class="active">{{ currentPage}}</a>
+                       
+                        {{#if hasNextPage}}
+                            {{#compareTo lastPage nextPage}}
+                            {{/compareTo}} 
+                            {{#display3DotsLast lastPage nextPage }}
+                            {{/display3DotsLast}}
+                        {{/if}}
+                       
+                        {{#compareTo currentPage lastPage}}
+                        {{/compareTo}}
+             </section>
+             </section>
+            </div>  
         </div>
+      
     </section>
 
     <!----------------------FOOTER----------------------->
@@ -129,3 +101,16 @@
     <script src="/js/footer.js"></script>
     <script src="/js/darkmode.js"></script>
 </body>
+<script>
+     function getURL(page) {
+        const url = new URL(window.location.href);
+       
+        if (!url.searchParams.get('page')) {
+            url.searchParams.append('page', page);
+        }
+        else{
+            url.searchParams.set('page', page);
+        }
+        window.location.replace(url);
+    }
+</script>

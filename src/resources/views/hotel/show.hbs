@@ -1,58 +1,3 @@
-<!--
-<div class='container-fluid'>
-
-    <div class='card mb-3' style='margin-top: 30px;'>
-        <div class='row g-0'>
-            <div class='col-md-3'>
-
-                <img src='{{hotel.hotel_imagelink}}' class='img-fluid rounded-start' alt='...' />
-            </div>
-            <div class='col-md-6'>
-                <div class='card-body'>
-                    <h5 class='card-title'><a>{{hotel.hotel_name}}</a></h5>
-                    <p class='card-text'>{{hotel.hotel_addr}}</p>
-
-                </div>
-            </div>
-            {{! begin }}
-            <div class='col-md-3'>
-                {{#each this.sources}}
-                    <div class='card-body'>
-                        <h5 class='card-title' style='font-weight: bold;'>{{this.hotel_price}}</h5>
-                        <a
-                            href='{{this.hotel_orderlink}}'
-                            style='font-style: italic;'
-                            target='_blank'
-                        >{{this.source_name}}</a>
-                    </div>
-                {{/each}}
-            </div>
-            {{! end }}
-        </div>
-    </div>
-
-    <div class='card' style='margin-top: 50px;'>
-        <div class='card-header' style='background-color: cornflowerblue;color: white;'>
-            Comment
-        </div>
-        {{#each comments}}
-            {{#each this.comment}}
-                <div class='card-body'>
-                    <blockquote class='blockquote mb-0'>
-                        <p>{{this}}</p>
-                    </blockquote>
-                </div>
-            {{/each}}
-            <footer
-                class='blockquote-footer'
-                style='font-style: italic;font-weight: bold;size: 30px;'
-            >{{this.source_name}}
-                <cite title='Source Title'></cite></footer>
-        {{/each}}
-    </div>
-</div>
--->
-
 
     <link rel='stylesheet' href='/css/lesson.css' />
     <link rel='stylesheet' href='/css/index.css' />
@@ -88,27 +33,12 @@
                     {{!-- <iframe width="100%" height="600px" src="http://www.youtube.com/embed/IStS6E0uGhE?autoplay=1" frameborder="0" allowfullscreen></iframe> --}}
                     <div class="tab">
                         <button value="transcript" class="tab-links" onclick="openTab(event, 'transcript')" id="defaultOpen"><i class="far fa-bookmark"></i> Comment</button>
-                        <button value="quiz" class="tab-links" onclick="openTab(event, 'quiz')"><i class="far fa-question-circle"></i> Quiz</button>
                     </div>
                     <div id="quiz" class="tab-content">
                         <p>Answer the following questions about the interview.</p>
                         <!-- begin -->
                            
-                           {{#each questions}}
-                                <div class="qiz-question">
-                                    <div class="question__content">{{this.content}} </div>
-                                    <!-- begin-->
-                                        {{#each this.answer}}
-                                        <div class='answer_card'>
-                                            <input type="checkbox" name="question1" class="answer1" id="{{this._id}}" value="{{this.content}}">
-                                            <label for="answer1_A">{{this.content}}</label>
-                                             <input type="hidden" class='isTrue' id="isTrue_{{this._id}}" name="isTrue" value="{{this.isTrue}}">
-                                            </br>
-                                        </div>
-                                         {{/each}}
-                                    <!--end-->
-                                </div>
-                          {{/each}}
+                          
                           <!-- begin -->
                       
                         
@@ -117,26 +47,46 @@
                     </div>  
                     <div id="transcript" class="tab-content">
                          {{#each comments}}
-                        <div id="transcript__content">
+                        <div id="transcript__content" style="background-color: whitesmoke;">
                            
-                                {{#each this.comment}}
+                               
                                     <div class='card-body'>
                                         <blockquote class='blockquote mb-0'>
-                                            <p>{{this}}</p>
+                                            <p>{{this.comment}}</p>
                                         </blockquote>
                                     </div>
-                                {{/each}}
                             <footer
                                 class='blockquote-footer'
-                                style='font-style: italic;font-weight: bold;size: 30px;'
+                                style='font-weight: 400;font-size: 15px;color: blue'
+                            >{{this.topic_content}}
+                                <cite title='Source Title'></cite></footer>
+                            <footer
+                                class='blockquote-footer'
+                                style='font-style: italic;font-weight: bold;font-size: 10px;'
                             >{{this.source_name}}
                                 <cite title='Source Title'></cite></footer>
                            
                         </div>
-                        <button id="hide-transcript">Hide Transcript</button>
                         {{/each}}
                     </div>
+                    <section class="pagination">
+                        {{#compare currentPage 1}}
+                        {{/compare}}
+                         {{#if hasPreviousPage }}
+                            {{#compare 1 previousPage}}
+                            {{/compare}}
+                        {{/if}}
+                        <a href="?page={{currentPage}}" class="active">{{ currentPage}}</a>
+                       
+                        {{#if hasNextPage }}
+                            {{#compare lastPage nextPage}}
+                            {{/compare}} 
+                        {{/if}}
+                        {{#compare currentPage lastPage}}
+                        {{/compare}}
 
+                    </section>
+                    <br>
                     <hr/>
                     
                     <div class="continue-lesson">
@@ -174,7 +124,7 @@
                 <div class="right-container">
                     <h2>Sourse</h2>
                     <div class="course-relate-list">
-                        {{#each this.sources}}
+                        {{#each hotel.source}}
                             <div class="course-item">
                              {{#image this.source_name}}
                             {{/image}}
@@ -188,7 +138,7 @@
                                     <div style="margin-bottom: 20px"></div>
                                 </div>
                             </div>
-                        {{/each}}
+                       {{/each}}
                     </div>
                 </div>
             </div>

@@ -20,28 +20,23 @@
     <a href='/' class='nav__logo'>Travel <span>Agency</span></a>
     <div class='nav__menu' id='nav-menu'>
         <ul class='nav__list'>
-            <li class='nav__item'>
-                <a href='/' class='nav__link active-link'>
-                    <i class='bx bx-home-alt nav__icon'></i>
-                    <span class='nav__name'>Home</span>
-                </a>
-            </li>
+
             <li class='nav__item'>
                 <a href='#' class='nav__link'>
                     <i class='bx bx-book-alt nav__icon'></i>
-                    <span class='nav__name'>Room</span>
+                    <span class='nav__name'>Phòng</span>
                 </a>
             </li>
             <li class='nav__item'>
                 <a href='#' class='nav__link'>
                     <i class='bx bx-video nav__icon'></i>
-                    <span class='nav__name'>Flight</span>
+                    <span class='nav__name'>Vé máy bay</span>
                 </a>
             </li>
             <li class='nav__item'>
                 <a href='#' class='nav__link'>
                     <i class='bx bxs-music nav__icon'></i>
-                    <span class='nav__name'>Today's Deal</span>
+                    <span class='nav__name'>Ưu đãi</span>
                 </a>
             </li>
             <li class='nav__item' style='display: flex; align-items: center;'>
@@ -67,7 +62,7 @@
 
     </div>
     <div>
-        {{#if login.status}}
+
 
             <div class='dropdown show'>
                 <a
@@ -79,16 +74,12 @@
                     aria-haspopup='true'
                     aria-expanded='false'
                 >
-                    {{login.name}}
+                   Bùi Quang Tùng
                 </a>
                 <div class='dropdown-menu dropdown-content' aria-labelledby='dropdownMenuLink'>
 
-                    {{#if login.admin}}
-                        <a class='dropdown-item' href='/courses/create'>Post course</a>
-                        <a class='dropdown-item' href='/me/stored/courses'>My courses</a>
-                    {{/if}}
+                    <a class='dropdown-item' href='/admin'>My hotel</a>
                     <form method='post' action='/login?_method=DELETE'>
-                        <input type='hidden' name='_csrf' value='{{csrfToken}}' />
                         <button
                             type='submit'
                             class='btn btn-primary dropdown-item'
@@ -97,17 +88,6 @@
                     </form>
                 </div>
             </div>
-
-        {{else}}
-
-            <li class='nav__item'>
-                <a href='/login' class='nav__link'>
-                    <i class='bx bx-log-in-circle nav__icon'></i>
-                    <span class='nav__name'>Log in</span>
-                </a>
-            </li>
-
-        {{/if}}
     </div>
 
 </nav>
